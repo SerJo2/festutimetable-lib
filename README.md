@@ -1,9 +1,9 @@
 # 🎓 FESTU Timetable Library
 
-[![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![PyPI version](https://img.shields.io/pypi/v/festutimetable.svg)](https://pypi.org/project/festutimetable/)
-
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![Лицензия: MIT](https://img.shields.io/badge/Лицензия-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Версия PyPI](https://img.shields.io/pypi/v/festutimetable.svg)](https://pypi.org/project/festutimetable/)
+[![Скачивания PyPI](https://img.shields.io/pypi/dm/festutimetable.svg)](https://pypi.org/project/festutimetable/)
 English | [Russian](https://github.com/SerJo2/festutimetable-lib/blob/master/README.ru.md)
 
 A Python library for easy access and manipulation of FESTU (Far Eastern State Transport University) class schedules.
