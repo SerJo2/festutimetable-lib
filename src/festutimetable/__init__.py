@@ -1,6 +1,6 @@
-from .FestuApi import FestuApi
+from .FestuApi import TimetableService
 from .FestuDayTimetable import FestuDayTimetable
 from .Lecture import Lecture
 from .FestuTimetable import FestuTimetable
 
-__all__ = ["FestuApi", "FestuDayTimetable", "Lecture", "FestuTimetable"]
+__all__ = ["TimetableService", "FestuDayTimetable", "Lecture", "FestuTimetable"]
