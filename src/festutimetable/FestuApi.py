@@ -99,6 +99,17 @@ class TimetableService:
         except ValueError as e:
             raise DateNotFoundError(f"Timetable for date {date} not found") from e
 
+    def get_timetable_by_day_by_classroom(self, classroom: int, date: str):
+
+        if not self._is_valid_date(date):
+            raise ValueError(f"Invalid date format: {date}. Use DD.MM.YYYY")
+
+        try:
+            fetched_timetable = self.client.fetch_timetable_by_classroom(classroom, date)
+            return self.parser.parse_1day(fetched_timetable, date)
+        except ValueError as e:
+            raise DateNotFoundError(f"Timetable for date {date} not found") from e
+
 
     def _is_valid_date(self, date: str) -> bool:
         """Checks the date for valid
@@ -294,6 +305,25 @@ class TimetableClient:
             return response.text
         except requests.RequestException as e:
             raise RequestError(f"Failed to fetch timetable for teacher {teacher_id}: {e}") from e
+
+    def fetch_timetable_by_classroom(self, classroom_id: int, date: str):
+        data = {
+            'AudID': classroom_id,
+            'Time': date
+        }
+
+        try:
+            response = self.session.post(
+                url=self.config.base_url + self.config.endpoint,
+                params=self.config.params,
+                data=data,
+                timeout=self.config.timeout
+            )
+            response.raise_for_status()
+            return response.text
+        except requests.RequestException as e:
+            raise RequestError(f"Failed to fetch timetable for teacher {teacher_id}: {e}") from e
+
 
     def _get_group_id(self, group: str) -> str:
         """Gets an id from a dictionary given a group name.
